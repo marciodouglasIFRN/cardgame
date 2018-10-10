@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event Login</name>
+    <events>
+        <variable constant="0" name="player" sid="290488147094613" static="0" type="text"></variable>
+        <event-block sid="252658479292195">
+            <conditions>
+                <condition id="0" name="On clicked" sid="184469918190420" type="Button" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="967448714128144" type="System">
+                    <param id="0" name="Variable">player</param>
+                    <param id="1" name="Value">TextBox.Text</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="433443720857011" type="System">
+                    <param id="0" name="Layout">Main</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="841234760643067">
+            <conditions>
+                <condition id="0" name="Compare text" sid="965679727506097" type="TextBox">
+                    <param id="0" name="Text">&quot;&quot;</param>
+                    <param id="1" name="Case">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="3" name="Set enabled" sid="809079083467968" type="Button">
+                    <param id="0" name="Mode">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="634569201628930">
+            <conditions>
+                <condition id="-22" name="Else" sid="742694954914907" type="System" />
+            </conditions>
+            <actions>
+                <action id="3" name="Set enabled" sid="959013108999323" type="Button">
+                    <param id="0" name="Mode">1</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

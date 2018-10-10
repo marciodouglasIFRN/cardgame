@@ -1,0 +1,976 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event Main</name>
+    <events>
+        <variable constant="0" name="index" sid="260833855950107" static="0" type="number">1</variable>
+        <variable constant="0" name="primeiradisponivel" sid="685567982256833" static="0" type="number">1</variable>
+        <variable constant="0" name="memoria" sid="851538625256884" static="0" type="number">1</variable>
+        <variable constant="0" name="cartasNaMao" sid="612733953509745" static="0" type="number">0</variable>
+        <variable constant="1" name="GAME_NAME" sid="357178948495117" static="0" type="text">M4RC10D0UGL451</variable>
+        <variable constant="1" name="inSTANCE_NAME" sid="714923063802029" static="0" type="text">brasil</variable>
+        <variable constant="1" name="room_name" sid="568038873151254" static="0" type="text">principal</variable>
+        <event-group description="" sid="461403042339470" title="connection">
+            <sub-events>
+                <event-block sid="725097207666264">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="259207883060448" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="1" name="Connect" sid="774466107026125" type="Multiplayer">
+                            <param id="0" name="Server">&quot;wss://multiplayer.scirra.com&quot;</param>
+                        </action>
+                        <action id="0" name="Call function" sid="594378460629534" type="Function">
+                            <param id="0" name="Name">&quot;initArray&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="868747846858111">
+                            <conditions>
+                                <condition id="-12" name="Repeat" sid="976206803034600" type="System">
+                                    <param id="0" name="Count">4</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="797982011815490">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="447994731254974" type="position">
+                                            <param id="0" name="Instance variable">id</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">index</param>
+                                        </condition>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="540592807956182" type="position">
+                                            <param id="0" name="Instance variable">disponivel</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="810536963607399" type="System">
+                                            <param id="0" name="Object to create">robo</param>
+                                            <param id="1" name="Layer">0</param>
+                                            <param id="2" name="X">TiledBackground.Width/2</param>
+                                            <param id="3" name="Y">TiledBackground.Height/2</param>
+                                        </action>
+                                        <action id="-7" name="Set size" sid="331467166313320" type="robo">
+                                            <param id="0" name="Width">450</param>
+                                            <param id="1" name="Height">600</param>
+                                        </action>
+                                        <action id="4" name="Set animation" sid="239695624956382" type="robo">
+                                            <param id="0" name="Animation">choose(&quot;bloco&quot;,&quot;kill9&quot;,&quot;card1&quot;,&quot;card2&quot;)</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                        <action id="-7" name="Set size" sid="772388347401099" type="robo">
+                                            <param id="0" name="Width">123</param>
+                                            <param id="1" name="Height">166</param>
+                                        </action>
+                                        <action id="-10" name="Add to" sid="326386360672746" type="System">
+                                            <param id="0" name="Variable">cartasNaMao</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="166556114172989" type="robo">
+                                            <param id="0" name="Instance variable">id</param>
+                                            <param id="1" name="Value">&quot;robo&quot;&amp;robo.AnimationName</param>
+                                        </action>
+                                        <action id="-3" name="Set position" sid="118553273729779" type="robo">
+                                            <param id="0" name="X">position.X</param>
+                                            <param id="1" name="Y">position.Y</param>
+                                        </action>
+                                        <action id="-10" name="Add to" sid="501876604066715" type="System">
+                                            <param id="0" name="Variable">index</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="-13" name="Set boolean" sid="507996805333210" type="position">
+                                            <param id="0" name="Instance variable">disponivel</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="274512581212949" type="robo">
+                                            <param id="0" name="Instance variable">card</param>
+                                            <param id="1" name="Value">robo.AnimationName</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="352254410746046">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="446804042493407" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Add to" sid="312062310013992" type="System">
+                                            <param id="0" name="Variable">index</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="317044826392271">
+                    <conditions>
+                        <condition id="2" name="On connected" sid="662576987040676" type="Multiplayer" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Log in" sid="517089360567389" type="Multiplayer">
+                            <param id="0" name="Alias">player</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="363223231094182">
+                    <conditions>
+                        <condition id="4" name="On logged in" sid="952261156366316" type="Multiplayer" />
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Join room" sid="258148787160903" type="Multiplayer">
+                            <param id="0" name="Game">GAME_NAME</param>
+                            <param id="1" name="Instance">INSTANCE_NAME</param>
+                            <param id="2" name="Room">ROOM_NAME</param>
+                            <param id="3" name="Max peers">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="552779269739626">
+                    <conditions>
+                        <condition id="5" name="On joined room" sid="609476468664125" type="Multiplayer" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="891341391327817">
+                            <conditions>
+                                <condition id="10" name="Is host" sid="575811316577586" type="Multiplayer" />
+                                <condition id="-7" name="Compare instance variable" sid="938144584280649" type="Button">
+                                    <param id="0" name="Instance variable">id</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;finalizar&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-12" name="Set group active" sid="360408050688994" type="System">
+                                    <param id="0" name="Group name">&quot;host&quot;</param>
+                                    <param id="1" name="State">1</param>
+                                </action>
+                                <action id="0" name="Set text" sid="454321808726026" type="Text">
+                                    <param id="0" name="Text">&quot;host&quot;</param>
+                                </action>
+                                <action id="-12" name="Set group active" sid="117523856171965" type="System">
+                                    <param id="0" name="Group name">&quot;load card&quot;</param>
+                                    <param id="1" name="State">1</param>
+                                </action>
+                                <action id="3" name="Set enabled" sid="340116728039541" type="Button">
+                                    <param id="0" name="Mode">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="219256986296749">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="871531498191326" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-12" name="Set group active" sid="387239545981742" type="System">
+                                    <param id="0" name="Group name">&quot;peer&quot;</param>
+                                    <param id="1" name="State">1</param>
+                                </action>
+                                <action id="0" name="Set text" sid="234132158095964" type="Text">
+                                    <param id="0" name="Text">&quot;peer&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" inactive="1" sid="195099610040575" title="host">
+            <sub-events>
+                <event-block sid="165117859958070">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="981352250500393" type="robo">
+                            <param id="0" name="Object">myMemory</param>
+                        </condition>
+                        <condition id="2" name="Is playing" sid="659034236093910" type="robo">
+                            <param id="0" name="Animation">robo.id</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="9" name="Broadcast message" sid="122657021874589" type="Multiplayer">
+                            <param id="0" name="From ID">&quot;&quot;</param>
+                            <param id="1" name="Tag">&quot;robo&quot;</param>
+                            <param id="2" name="Message">robo.card</param>
+                            <param id="3" name="Mode">0</param>
+                        </action>
+                        <action id="9" name="Broadcast message" sid="243576072432850" type="Multiplayer">
+                            <param id="0" name="From ID">&quot;&quot;</param>
+                            <param id="1" name="Tag">&quot;memoria&quot;</param>
+                            <param id="2" name="Message">str(myMemory.id)</param>
+                            <param id="3" name="Mode">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="918673052550297">
+                    <conditions>
+                        <condition id="0" name="On clicked" sid="816181129799205" type="Button" />
+                        <condition id="-7" name="Compare instance variable" sid="235265035431292" type="Button">
+                            <param id="0" name="Instance variable">id</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;finalizar&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="9" name="Broadcast message" sid="629301657587711" type="Multiplayer">
+                            <param id="0" name="From ID">&quot;&quot;</param>
+                            <param id="1" name="Tag">&quot;vez&quot;</param>
+                            <param id="2" name="Message">&quot;fim&quot;</param>
+                            <param id="3" name="Mode">0</param>
+                        </action>
+                        <action id="-12" name="Set group active" sid="433331768262125" type="System">
+                            <param id="0" name="Group name">&quot;load card&quot;</param>
+                            <param id="1" name="State">2</param>
+                        </action>
+                        <action id="3" name="Set enabled" sid="863157052376941" type="Button">
+                            <param id="0" name="Mode">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="958085653645327">
+                    <conditions>
+                        <condition id="4" name="On finished" sid="173483958024279" type="myMemory">
+                            <param id="0" name="Animation">&quot;unlock&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="9" name="Broadcast message" sid="816504346626428" type="Multiplayer">
+                            <param id="0" name="From ID">&quot;&quot;</param>
+                            <param id="1" name="Tag">&quot;unlock&quot;</param>
+                            <param id="2" name="Message">str(myMemory.id)</param>
+                            <param id="3" name="Mode">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" inactive="1" sid="298295904175959" title="peer">
+            <sub-events>
+                <event-block sid="186489470621489">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="274446573170283" type="robo">
+                            <param id="0" name="Object">myMemory</param>
+                        </condition>
+                        <condition id="2" name="Is playing" sid="201084365264183" type="robo">
+                            <param id="0" name="Animation">robo.id</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="8" name="Send message" sid="782006328727901" type="Multiplayer">
+                            <param id="0" name="Peer ID">&quot;&quot;</param>
+                            <param id="1" name="Tag">&quot;robo&quot;</param>
+                            <param id="2" name="Message">robo.card</param>
+                            <param id="3" name="Mode">0</param>
+                        </action>
+                        <action id="8" name="Send message" sid="512293445433490" type="Multiplayer">
+                            <param id="0" name="Peer ID">&quot;&quot;</param>
+                            <param id="1" name="Tag">&quot;memoria&quot;</param>
+                            <param id="2" name="Message">str(myMemory.id)</param>
+                            <param id="3" name="Mode">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="539112640695845">
+                    <conditions>
+                        <condition id="0" name="On clicked" sid="481638521212648" type="Button" />
+                        <condition id="-7" name="Compare instance variable" sid="286535725039972" type="Button">
+                            <param id="0" name="Instance variable">id</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;finalizar&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="8" name="Send message" sid="712366319754986" type="Multiplayer">
+                            <param id="0" name="Peer ID">&quot;&quot;</param>
+                            <param id="1" name="Tag">&quot;vez&quot;</param>
+                            <param id="2" name="Message">&quot;fim&quot;</param>
+                            <param id="3" name="Mode">0</param>
+                        </action>
+                        <action id="-12" name="Set group active" sid="708504793513842" type="System">
+                            <param id="0" name="Group name">&quot;load card&quot;</param>
+                            <param id="1" name="State">2</param>
+                        </action>
+                        <action id="3" name="Set enabled" sid="429298788632143" type="Button">
+                            <param id="0" name="Mode">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="551417211212018">
+                    <conditions>
+                        <condition id="4" name="On finished" sid="318155174632795" type="myMemory">
+                            <param id="0" name="Animation">&quot;unlock&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="8" name="Send message" sid="658876734123145" type="Multiplayer">
+                            <param id="0" name="Peer ID">&quot;&quot;</param>
+                            <param id="1" name="Tag">&quot;unlock&quot;</param>
+                            <param id="2" name="Message">str(myMemory.id)</param>
+                            <param id="3" name="Mode">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="309881922444030" title="common">
+            <sub-events>
+                <event-group description="" inactive="1" sid="247972931566025" title="load card">
+                    <sub-events>
+                        <event-block sid="206866481434731">
+                            <conditions>
+                                <condition id="6" name="On object clicked" sid="219910012506781" type="Mouse">
+                                    <param id="0" name="Mouse button">0</param>
+                                    <param id="1" name="Click type">0</param>
+                                    <param id="2" name="Object clicked">robo</param>
+                                </condition>
+                                <condition id="-5" name="Compare width" sid="186223714336210" type="robo">
+                                    <param id="0" name="Comparison">1</param>
+                                    <param id="1" name="Width">450</param>
+                                </condition>
+                                <condition id="2" inverted="1" name="Is playing" sid="992942619510818" type="robo">
+                                    <param id="0" name="Animation">robo.id</param>
+                                </condition>
+                                <condition id="-1" name="Compare X" sid="842602721060333" type="position">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="X co-ordinate">robo.X</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-7" name="Set size" sid="217219482918936" type="robo">
+                                    <param id="0" name="Width">450</param>
+                                    <param id="1" name="Height">600</param>
+                                </action>
+                                <action id="-3" name="Set position" sid="435460082193080" type="robo">
+                                    <param id="0" name="X">TiledBackground.Width/2</param>
+                                    <param id="1" name="Y">TiledBackground.Height/2</param>
+                                </action>
+                                <action id="2" name="Set visible" sid="179064631509818" type="Button">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="-3" name="Create object" sid="433468500859905" type="System">
+                                    <param id="0" name="Object to create">Button</param>
+                                    <param id="1" name="Layer">0</param>
+                                    <param id="2" name="X">robo.X</param>
+                                    <param id="3" name="Y">robo.Y-400</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="342543814280549" type="Button">
+                                    <param id="0" name="Instance variable">id</param>
+                                    <param id="1" name="Value">&quot;carregar&quot;</param>
+                                </action>
+                                <action id="0" name="Set text" sid="436997011874956" type="Button">
+                                    <param id="0" name="Text">&quot;Carregar&quot;</param>
+                                </action>
+                                <action id="3" name="Set enabled" sid="235919307814211" type="Button">
+                                    <param id="0" name="Mode">1</param>
+                                </action>
+                                <action id="-3" name="Create object" sid="439860054334888" type="System">
+                                    <param id="0" name="Object to create">Button</param>
+                                    <param id="1" name="Layer">0</param>
+                                    <param id="2" name="X">robo.X-230</param>
+                                    <param id="3" name="Y">robo.Y-400</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="818479829968723" type="Button">
+                                    <param id="0" name="Instance variable">id</param>
+                                    <param id="1" name="Value">&quot;cancelar&quot;</param>
+                                </action>
+                                <action id="0" name="Set text" sid="697154466384658" type="Button">
+                                    <param id="0" name="Text">&quot;Cancelar&quot;</param>
+                                </action>
+                                <action id="3" name="Set enabled" sid="340239265836603" type="Button">
+                                    <param id="0" name="Mode">1</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="610152788314370" type="position">
+                                    <param id="0" name="Instance variable">disponivel</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="663546258252377">
+                            <conditions>
+                                <condition id="0" name="On clicked" sid="784214810606494" type="Button" />
+                                <condition id="-1" name="Compare X" sid="295045375382868" type="robo">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="X co-ordinate">TiledBackground.Width/2</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="717757331968310">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="641074985529554" type="Button">
+                                            <param id="0" name="Instance variable">id</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;carregar&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="996890897013100">
+                                            <conditions>
+                                                <condition id="2" name="Is playing" sid="349821033727371" type="myMemory">
+                                                    <param id="0" name="Animation">&quot;unlock&quot;</param>
+                                                </condition>
+                                                <condition id="-7" name="Compare instance variable" sid="121356403778095" type="myMemory">
+                                                    <param id="0" name="Instance variable">id</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">primeiradisponivel</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-3" name="Set position" sid="148725319423703" type="robo">
+                                                    <param id="0" name="X">myMemory.X</param>
+                                                    <param id="1" name="Y">myMemory.Y</param>
+                                                </action>
+                                                <action id="4" name="Set animation" sid="260962676711599" type="robo">
+                                                    <param id="0" name="Animation">robo.id</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                                <action id="-10" name="Add to" sid="674425123449072" type="System">
+                                                    <param id="0" name="Variable">primeiradisponivel</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <event-block sid="610717784181741">
+                                                    <conditions>
+                                                        <condition id="1" name="Is overlapping another object" sid="412593335781017" type="myMemory">
+                                                            <param id="0" name="Object">robo</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="4" name="Set animation" sid="770806573035152" type="myMemory">
+                                                            <param id="0" name="Animation">&quot;open&quot;</param>
+                                                            <param id="1" name="From">1</param>
+                                                        </action>
+                                                        <action id="-7" name="Set size" sid="888911443199917" type="robo">
+                                                            <param id="0" name="Width">myMemory.Width- 100</param>
+                                                            <param id="1" name="Height">myMemory.Height - 80</param>
+                                                        </action>
+                                                        <action id="-11" name="Subtract from" sid="937732816774650" type="System">
+                                                            <param id="0" name="Variable">cartasNaMao</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                        <action id="0" name="Call function" sid="881931954690199" type="Function">
+                                                            <param id="0" name="Name">&quot;del&quot;</param>
+                                                            <param id="1" name="Parameter {n}"></param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <event-block sid="768758959823864">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="443018195535582" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="-3" name="Create object" sid="570816710215466" type="System">
+                                                    <param id="0" name="Object to create">Text</param>
+                                                    <param id="1" name="Layer">0</param>
+                                                    <param id="2" name="X">TiledBackground.Width/2-230</param>
+                                                    <param id="3" name="Y">TiledBackground.Height/2-450</param>
+                                                </action>
+                                                <action id="0" name="Set text" sid="220947708476132" type="Text">
+                                                    <param id="0" name="Text">&quot;Sem memória disponível&quot;</param>
+                                                </action>
+                                                <action id="3" name="Set font size" sid="582863434241042" type="Text">
+                                                    <param id="0" name="Size (pt)">28</param>
+                                                </action>
+                                                <action id="-16" name="Wait" sid="228583452489397" type="System">
+                                                    <param id="0" name="Seconds">1.0</param>
+                                                </action>
+                                                <action id="-9" name="Destroy" sid="350642314477222" type="Text" />
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="741575508085575">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="614723372801240" type="System" />
+                                        <condition id="-7" name="Compare instance variable" sid="229623267337205" type="Button">
+                                            <param id="0" name="Instance variable">id</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;cancelar&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="788701497264366" type="System">
+                                            <param id="0" name="Variable">index</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="766353847081189">
+                                            <conditions>
+                                                <condition id="-12" name="Repeat" sid="640730882790928" type="System">
+                                                    <param id="0" name="Count">8</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block sid="162697782160940">
+                                                    <conditions>
+                                                        <condition id="-7" name="Compare instance variable" sid="723054508524125" type="position">
+                                                            <param id="0" name="Instance variable">id</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">index</param>
+                                                        </condition>
+                                                        <condition id="-8" name="Is boolean instance variable set" sid="948138252854307" type="position">
+                                                            <param id="0" name="Instance variable">disponivel</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-3" name="Set position" sid="917293070055552" type="robo">
+                                                            <param id="0" name="X">position.X</param>
+                                                            <param id="1" name="Y">position.Y</param>
+                                                        </action>
+                                                        <action id="-13" name="Set boolean" sid="259886250594344" type="position">
+                                                            <param id="0" name="Instance variable">disponivel</param>
+                                                            <param id="1" name="Value">0</param>
+                                                        </action>
+                                                        <action id="0" name="Call function" sid="755501298841896" type="Function">
+                                                            <param id="0" name="Name">&quot;del&quot;</param>
+                                                            <param id="1" name="Parameter {n}"></param>
+                                                        </action>
+                                                        <action id="-24" name="Stop loop" sid="662870929154851" type="System" />
+                                                        <action id="-7" name="Set size" sid="235198786017582" type="robo">
+                                                            <param id="0" name="Width">123</param>
+                                                            <param id="1" name="Height">166</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="871397213650019">
+                                                    <conditions>
+                                                        <condition id="-22" name="Else" sid="340005551402929" type="System" />
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-10" name="Add to" sid="953202787526093" type="System">
+                                                            <param id="0" name="Variable">index</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="223062045342077" title="over">
+                    <sub-events>
+                        <event-block sid="547829533650547">
+                            <conditions>
+                                <condition id="7" name="Cursor is over object" sid="340505567943365" type="Mouse">
+                                    <param id="0" name="Object">robo</param>
+                                </condition>
+                                <condition id="2" name="Is playing" sid="547155889622703" type="robo">
+                                    <param id="0" name="Animation">robo.id</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="402275174515799" type="System">
+                                    <param id="0" name="Object to create">Text</param>
+                                    <param id="1" name="Layer">0</param>
+                                    <param id="2" name="X">robo.X -250</param>
+                                    <param id="3" name="Y">robo.Y - 250</param>
+                                </action>
+                                <action id="0" name="Set text" sid="673345245879028" type="Text">
+                                    <param id="0" name="Text">robo.card</param>
+                                </action>
+                                <action id="-3" name="Create object" sid="997716412415944" type="System">
+                                    <param id="0" name="Object to create">robo</param>
+                                    <param id="1" name="Layer">0</param>
+                                    <param id="2" name="X">TiledBackground.Width/2</param>
+                                    <param id="3" name="Y">TiledBackground.Height/2</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="552983408587930" type="robo">
+                                    <param id="0" name="Animation">Text.Text</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-7" name="Set size" sid="517004063895114" type="robo">
+                                    <param id="0" name="Width">300</param>
+                                    <param id="1" name="Height">400</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="411116296145225" type="Text" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="584792751224465">
+                            <conditions>
+                                <condition id="7" inverted="1" name="Cursor is over object" sid="565472905765185" type="Mouse">
+                                    <param id="0" name="Object">robo</param>
+                                </condition>
+                                <condition id="-5" name="Compare width" sid="318906538329475" type="robo">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Width">300</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="541538980114277" type="robo" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-block sid="377373449790388">
+                    <conditions>
+                        <condition id="15" name="On peer message" sid="100306904654002" type="Multiplayer">
+                            <param id="0" name="Tag">&quot;memoria&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="844054551387527">
+                            <conditions>
+                                <condition id="2" name="Is playing" sid="314750272622432" type="oponnentMemory">
+                                    <param id="0" name="Animation">&quot;unlock&quot;</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="799128910535265" type="myMemory">
+                                    <param id="0" name="Instance variable">id</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">memoria</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Wait" sid="748117590252135" type="System">
+                                    <param id="0" name="Seconds">1.0</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="174138293467464" type="oponnentMemory">
+                                    <param id="0" name="Animation">&quot;open&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="807700566169354">
+                    <conditions>
+                        <condition id="15" name="On peer message" sid="370951852102297" type="Multiplayer">
+                            <param id="0" name="Tag">&quot;robo&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="613490792093727" type="Text">
+                            <param id="0" name="Text">Multiplayer.Message</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="320668687882139">
+                    <conditions>
+                        <condition id="4" name="On finished" sid="541425334997097" type="oponnentMemory">
+                            <param id="0" name="Animation">&quot;open&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="933959541147693" type="System">
+                            <param id="0" name="Object to create">robo</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">oponnentMemory.X</param>
+                            <param id="3" name="Y">oponnentMemory.Y</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="531595106021992" type="robo">
+                            <param id="0" name="Animation">&quot;robo&quot;&amp;Text.Text</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-7" name="Set size" sid="734952673685125" type="robo">
+                            <param id="0" name="Width">116</param>
+                            <param id="1" name="Height">73</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="673949529782505" type="robo">
+                            <param id="0" name="Instance variable">id</param>
+                            <param id="1" name="Value">&quot;robo&quot;&amp;Text.Text</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="957208653255811" type="robo">
+                            <param id="0" name="Instance variable">card</param>
+                            <param id="1" name="Value">Text.Text</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="585860571906623">
+                    <conditions>
+                        <condition id="15" name="On peer message" sid="110685286420364" type="Multiplayer">
+                            <param id="0" name="Tag">&quot;vez&quot;</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="443420080368381" type="Button">
+                            <param id="0" name="Instance variable">id</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;finalizar&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Set group active" sid="798589701627130" type="System">
+                            <param id="0" name="Group name">&quot;load card&quot;</param>
+                            <param id="1" name="State">2</param>
+                        </action>
+                        <action id="3" name="Set enabled" sid="297213070407796" type="Button">
+                            <param id="0" name="Mode">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="598422163226798" type="System">
+                            <param id="0" name="Variable">index</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="589205654856153" type="System">
+                            <param id="0" name="Object to create">Button</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">TiledBackground.Width/2</param>
+                            <param id="3" name="Y">TiledBackground.Height/2</param>
+                        </action>
+                        <action id="0" name="Set text" sid="310883663819648" type="Button">
+                            <param id="0" name="Text">&quot;Memoria&quot;</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="317346657598901" type="Button">
+                            <param id="0" name="Instance variable">id</param>
+                            <param id="1" name="Value">&quot;memoria&quot;</param>
+                        </action>
+                        <action id="3" name="Set enabled" sid="158747370980964" type="Button">
+                            <param id="0" name="Mode">1</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="427817738642376" type="System">
+                            <param id="0" name="Object to create">Button</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">TiledBackground.Width/2-230</param>
+                            <param id="3" name="Y">TiledBackground.Height/2</param>
+                        </action>
+                        <action id="0" name="Set text" sid="350461400108849" type="Button">
+                            <param id="0" name="Text">&quot;Processamento&quot;</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="285657883170177" type="Button">
+                            <param id="0" name="Instance variable">id</param>
+                            <param id="1" name="Value">&quot;processamento&quot;</param>
+                        </action>
+                        <action id="3" name="Set enabled" sid="878353419368752" type="Button">
+                            <param id="0" name="Mode">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="592574578147096">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="689841467067193" type="System">
+                                    <param id="0" name="Variable">cartasNaMao</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">8</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="576641033612403" type="System">
+                                    <param id="0" name="Object to create">robo</param>
+                                    <param id="1" name="Layer">0</param>
+                                    <param id="2" name="X">TiledBackground.Width/2</param>
+                                    <param id="3" name="Y">TiledBackground.Height/2</param>
+                                </action>
+                                <action id="-7" name="Set size" sid="934569221815784" type="robo">
+                                    <param id="0" name="Width">450</param>
+                                    <param id="1" name="Height">600</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="650502173268555" type="robo">
+                                    <param id="0" name="Animation">choose(&quot;bloco&quot;,&quot;kill9&quot;,&quot;card1&quot;,&quot;card2&quot;)</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="904336699065009" type="System">
+                                    <param id="0" name="Seconds">1.5</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="678642646305001" type="System">
+                                    <param id="0" name="Variable">cartasNaMao</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="253297810671255" type="robo">
+                                    <param id="0" name="Instance variable">id</param>
+                                    <param id="1" name="Value">&quot;robo&quot;&amp;robo.AnimationName</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="437520848425348" type="robo">
+                                    <param id="0" name="Instance variable">card</param>
+                                    <param id="1" name="Value">robo.AnimationName</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="671264521965967">
+                                    <conditions>
+                                        <condition id="-12" name="Repeat" sid="626921022783928" type="System">
+                                            <param id="0" name="Count">8</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="661539513814068">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="203528371911672" type="position">
+                                                    <param id="0" name="Instance variable">id</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">index</param>
+                                                </condition>
+                                                <condition id="-8" name="Is boolean instance variable set" sid="432956042352733" type="position">
+                                                    <param id="0" name="Instance variable">disponivel</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-3" name="Set position" sid="542160905368057" type="robo">
+                                                    <param id="0" name="X">position.X</param>
+                                                    <param id="1" name="Y">position.Y</param>
+                                                </action>
+                                                <action id="-13" name="Set boolean" sid="981455590905225" type="position">
+                                                    <param id="0" name="Instance variable">disponivel</param>
+                                                    <param id="1" name="Value">0</param>
+                                                </action>
+                                                <action id="-24" name="Stop loop" sid="572994211491475" type="System" />
+                                                <action id="-7" name="Set size" sid="361715960412398" type="robo">
+                                                    <param id="0" name="Width">123</param>
+                                                    <param id="1" name="Height">166</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="557332187515541">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="155801593318967" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Add to" sid="175807528659386" type="System">
+                                                    <param id="0" name="Variable">index</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="564437053168366">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="583108563478930" type="robo">
+                                    <param id="0" name="Object">robo</param>
+                                </condition>
+                                <condition id="-8" name="Is boolean instance variable set" sid="750738630619098" type="robo">
+                                    <param id="0" name="Instance variable">movimento</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-2" name="Set Y" sid="813971557974058" type="robo">
+                                    <param id="0" name="Y">200</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="742861742929857">
+                    <conditions>
+                        <condition id="15" name="On peer message" sid="861879948192205" type="Multiplayer">
+                            <param id="0" name="Tag">&quot;unlock&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="917639150908982">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="897562750228233" type="oponnentMemory">
+                                    <param id="0" name="Instance variable">id</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">int(Multiplayer.Message)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Wait" sid="724602136157340" type="System">
+                                    <param id="0" name="Seconds">1.0</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="689691405607881" type="oponnentMemory">
+                                    <param id="0" name="Animation">&quot;unlock&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="513326644148887">
+                    <conditions>
+                        <condition id="0" name="On clicked" sid="558498920511784" type="Button" />
+                        <condition id="-7" name="Compare instance variable" sid="690446131380941" type="myMemory">
+                            <param id="0" name="Instance variable">id</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">memoria</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="727344807884387">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="333766955538725" type="Button">
+                                    <param id="0" name="Instance variable">id</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;processamento&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="839873703626507" type="Contador">
+                                    <param id="0" name="Text">int(Contador.Text)+1</param>
+                                </action>
+                                <action id="0" name="Call function" sid="201767623017238" type="Function">
+                                    <param id="0" name="Name">&quot;del&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="294348450485498">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="761000918791454" type="System" />
+                                <condition id="-7" name="Compare instance variable" sid="349985081320674" type="Button">
+                                    <param id="0" name="Instance variable">id</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;memoria&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="164295765223057" type="System">
+                                    <param id="0" name="Variable">memoria</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="675790827422098" type="myMemory">
+                                    <param id="0" name="Animation">&quot;unlock&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="0" name="Call function" sid="551481690617990" type="Function">
+                                    <param id="0" name="Name">&quot;del&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="743964009597880">
+            <conditions>
+                <condition id="0" name="On function" sid="892212215417220" type="Function">
+                    <param id="0" name="Name">&quot;del&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="875714163155780">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="440168264382516" type="Button">
+                            <param id="0" name="Instance variable">id</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">&quot;finalizar&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="753884004831350" type="Button" />
+                    </actions>
+                </event-block>
+                <event-block sid="417575682483193">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="997343897276426" type="Button">
+                            <param id="0" name="Instance variable">id</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;finalizar&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="2" name="Set visible" sid="534209610646640" type="Button">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>
